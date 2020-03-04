@@ -17,7 +17,7 @@ local girl4 = display.newImageRect("Images/girl4.png", 150, 150)
 local girl4Width = girl4.width
 local girl4height = girl4.height
 
-local girl5 = display.newImageRect("Images/girl5.png", 150.150)
+local girl5 = display.newImageRect("Images/girl5.png", 150,150)
 local girl5Width = girl5.width
 local girl5Height = girl5.height
 
