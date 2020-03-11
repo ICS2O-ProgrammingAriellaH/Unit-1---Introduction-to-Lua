@@ -46,4 +46,46 @@ end
 local function NumericFieldListener( event )
 
 	-- User begins editing "numericField"
-	if ( event.phase -- "began")
+	if ( event.phase == "began" ) then
+
+		-- clear the text field
+		event.target.text = ""
+
+	elseif event.phase == "submitted" then
+
+		-- when the answer is submitted (enter key is pressed) set user input to user's answer
+		userAnswer = tonumber(event.target.text)
+
+		-- if the users answer and the correct answer are the same:
+		if (userAnswer == correctAnswer) then
+			correctObject.isVisible = true 
+			timer.performWithdelay(2000, HideCorrect)
+		end
+	end
+end
+
+--------------------------------------------------------------------------------------------------------------
+-- OBJECT CREATION
+--------------------------------------------------------------------------------------------------------------
+
+-- displays a question and sets the colour
+questionObject = display.newText("", display.contentWidth/3, display.contentHeight/2, nil, 50)
+questionObject:setTextColour(/, /, /)
+
+-- create the correct text object  and make it invisible
+correctObject = display.newText( "Correct", display.contentWidth/2, display.contentHeight*2/3, nil, 50)
+correctObject:setTextColour(/, /, /)
+correctObject.isVisible = false
+
+-- create numeric field
+numericField = native
+
+-- add the event listener for the numeric field
+numericField:addEventListener( "userInput", NumericFieldListener )
+
+-------------------------------------------------------------------------------------------------------------------
+-- FUNCTION CALLS
+-------------------------------------------------------------------------------------------------------------------
+
+-- call the function to ask the question
+AskQuestion()
