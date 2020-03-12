@@ -69,16 +69,17 @@ end
 --------------------------------------------------------------------------------------------------------------
 
 -- displays a question and sets the colour
-questionObject = display.newText("", display.contentWidth/3, display.contentHeight/2, nil, 50)
-questionObject:setTextColour(/, /, /)
+questionObject = display.newText( "", display.contentWidth/3, display.contentHeight/2, nil, 50 )
+questionObject:setTextColour(60/255, 231/255, 14/255)
 
 -- create the correct text object  and make it invisible
 correctObject = display.newText( "Correct", display.contentWidth/2, display.contentHeight*2/3, nil, 50)
-correctObject:setTextColour(/, /, /)
+correctObject:setTextColour(231/255, 39/255, 14/255)
 correctObject.isVisible = false
 
 -- create numeric field
-numericField = native
+numericField = native.newTextField( display.contentWidth/2, display.contentHeight/2, 150, 80)
+numericField.inputType = false
 
 -- add the event listener for the numeric field
 numericField:addEventListener( "userInput", NumericFieldListener )
@@ -89,3 +90,19 @@ numericField:addEventListener( "userInput", NumericFieldListener )
 
 -- call the function to ask the question
 AskQuestion()
+
+---------------------------------------------------------------------------------------------------------------------------
+-- LOCAL VARIABLES
+---------------------------------------------------------------------------------------------------------------------------
+
+local points = 0 
+
+-------------------------------------------------------------------------------------------------------------------------------
+-- OBJECT CREATION
+-------------------------------------------------------------------------------------------------------------------------------
+
+-- display the amount of points as a text object
+pointsText = display.newText("Points =".. points, display.contentWidth/3, display.contentHeight/3, nil, 50)
+
+if (userAnswer == correctAnswer) then
+	-- give a point if the user gets the correct answer
