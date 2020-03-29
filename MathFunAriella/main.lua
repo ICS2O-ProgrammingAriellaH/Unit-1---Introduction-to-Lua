@@ -1,12 +1,11 @@
 -- Title: MathFun
--- Name: Ariella Harequin
+-- Name: Ariella Harlequin
 -- Course: ICS2O
--- This program asks the user four different types arithmetic questions.
+-- This program asks the user four different types of math questions on the screen for the user to answer.
 
 -------------------------------------------------------------------
 -- LOCAL VAARIABLES
 -------------------------------------------------------------------
-
 -- create local variables 
 local questionObject
 local correctObject
@@ -26,13 +25,12 @@ local function AskQuestion()
 	-- generate a random number between 1 and 4 
 	-- *** MAKE SURE TO DECLARE THIS VARIABLE ABOVE
 	randomOperator = math.random(1,2,3,4)
-end
-
+	
 	---------------------------------------------------------------------------------------------
 	-- ADDITION 
 	---------------------------------------------------------------------------------------------
 	-- if the random operator is 1, then do addition
-	if (randomOperator == 1) then
+    if (randomOperator == 1) then
 
 		-- calculate the correct answer
 		correctAnswer = randomNumber1 + randomNumber2
@@ -235,7 +233,9 @@ end
 
 		-- round the answer to the first decimal place
 		print( math.round( 0.1 ) )
-		local function HideCorrect()
+	end
+
+	local function HideCorrect()
 		correctObject.isVisible = false
 		AskQuestion()
 	end
@@ -284,11 +284,70 @@ end
 	incorrectObject = display.newText("Incorrect", display.contentWidth/2, display.contentHeight*2/3, nil, 55)
 	incorrectObject:setTextColor(67/255, 146/255, 89/255)
 	incorrectObject.isVisible = false
+
+	---------------------------------------------------------------------------------------------------------------------------------
+	--  FUNCTION CALLS 
+	---------------------------------------------------------------------------------------------------------------------------------
+
+	-- call the function to ask one of the questions above
+	AskQuestion()
 end
 
-----------------------------------------------------------------------------------------------
---  FUNCTION CALLS
------------------------------------------------------------------------------------------------
- 
--- call the function to ask one of the questions above
-AskQuestion()
+------------------------------------------------------------------------------------------------------
+-- VARIABLES
+---------------------------------------------------------------------------------------------------------------
+
+-- variables for the timer
+--local totalSeconds = 5
+--local secondsLeft = 5
+--local clockText
+--local countDownTimer
+
+--local lives = 3
+--local heart1
+--local heart2 
+--local incorrectObject
+--local pointsObject
+--local points 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+-- FUNCTION CALLS FOR TIMER AND LIVES
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+--local function UpdateTime()
+	
+	--decrement the number of seconds 
+	--secondsLeft = secondsLeft - 1 
+
+	-- display the number of seconds left in the clock object 
+	--clockText.text = secondsLeft .. ""
+
+	--if (secondsLeft == 0) then
+		-- reset the number of seconds left 
+		--secondsLeft = totalSeconds
+		--lives = lives - 1
+
+
+		--if (lives == 2) then
+			--heart2.isVisible = false
+		--elseif (lives == 1) then
+			--heart1.isVisible = false
+		--end
+		
+		-- call the function to ask one of the questions above
+		--AskQuestion()
+	--end
+--end
+
+-- function that calls the timer
+--local function StartTimer()
+	-- create a countdown timer that loops infinitely
+	--countDownTimer = timer.performWithDelay( 1000, UpdateTime, 0)
+--end
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- OBJECT CREATION
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- create the lives to display on the screen
+--heart1 = display
