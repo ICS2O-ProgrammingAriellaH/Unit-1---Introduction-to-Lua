@@ -291,63 +291,63 @@ local function AskQuestion()
 
 	-- call the function to ask one of the questions above
 	AskQuestion()
-end
 
-------------------------------------------------------------------------------------------------------
--- VARIABLES
----------------------------------------------------------------------------------------------------------------
 
--- variables for the timer
---local totalSeconds = 5
---local secondsLeft = 5
---local clockText
---local countDownTimer
+ ------------------------------------------------------------------------------------------------------
+ -- VARIABLES
+ ---------------------------------------------------------------------------------------------------------------
 
---local lives = 3
---local heart1
---local heart2 
---local incorrectObject
---local pointsObject
---local points 
+ local totalSeconds = 5
+ local secondsLeft = 5
+ local clockText
+ local countDownTimer
 
------------------------------------------------------------------------------------------------------------------------------------------------------
--- FUNCTION CALLS FOR TIMER AND LIVES
------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- variables for the timer
+ local lives = 3
+ local heart1
+ local heart2 
+ local incorrectObject
+ local pointsObject
+ local points 
 
---local function UpdateTime()
+ -----------------------------------------------------------------------------------------------------------------------------------------------------
+ -- FUNCTION CALLS FOR TIMER AND LIVES
+ -----------------------------------------------------------------------------------------------------------------------------------------------------
+
+ local function UpdateTime()
 	
 	--decrement the number of seconds 
-	--secondsLeft = secondsLeft - 1 
+	secondsLeft = secondsLeft - 1 
 
 	-- display the number of seconds left in the clock object 
-	--clockText.text = secondsLeft .. ""
+	clockText.text = secondsLeft .. ""
 
-	--if (secondsLeft == 0) then
+	if (secondsLeft == 0) then
 		-- reset the number of seconds left 
-		--secondsLeft = totalSeconds
-		--lives = lives - 1
+		secondsLeft = totalSeconds
+		lives = lives - 1
 
 
-		--if (lives == 2) then
-			--heart2.isVisible = false
-		--elseif (lives == 1) then
-			--heart1.isVisible = false
-		--end
+		if (lives == 2) then
+			heart2.isVisible = false
+		elseif (lives == 1) then
+			heart1.isVisible = false
+		end
 		
 		-- call the function to ask one of the questions above
-		--AskQuestion()
-	--end
---end
+		AskQuestion()
+	end
+ end
 
--- function that calls the timer
---local function StartTimer()
+ -- function that calls the timer
+ local function StartTimer()
 	-- create a countdown timer that loops infinitely
-	--countDownTimer = timer.performWithDelay( 1000, UpdateTime, 0)
---end
+	countDownTimer = timer.performWithDelay( 1000, UpdateTime, 0)
+ end
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
--- OBJECT CREATION
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- OBJECT CREATION
+ ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
--- create the lives to display on the screen
---heart1 = display
+ -- create the lives to display on the screen
+ heart1 = display
