@@ -6,6 +6,13 @@
 -- a second object that moves in a different
 -- direction, fades out and grows in size 
 
+-------------------------------------------------------------------------------------------------------
+-- SOUNDS
+-------------------------------------------------------------------------------------------------------
+-- background sound/music(idk)
+local backgroundSound = audio.loadSound( "Sounds/SpringSoundEffect.mp3" )
+local backgroundSoundChannel
+--------------------------------------------------------------------------------------------------------
 
 -- hide the status bar
 display.setStatusBar(display.HiddenStatusBar)
